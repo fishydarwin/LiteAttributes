@@ -1,0 +1,15 @@
+name: LiteAttributes
+version: '${version}'
+main: me.darwj.liteattributes.LiteAttributes
+api-version: 1.19
+authors: [ darwj ]
+description: Tracks some vanilla statistics over time and applies special abilities based on it.
+website: https://www.hanabira-rp.net
+
+commands:
+  attributeprogress:
+    description: View your current attributes progress.
+    aliases:
+      - attributes
+      - attr
+    permission: liteattributes.command.attributeprogress
