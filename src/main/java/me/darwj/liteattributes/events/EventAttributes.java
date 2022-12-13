@@ -30,7 +30,7 @@ public class EventAttributes implements Listener {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
             double jumpHeightBonus =
                     LiteAttributes.proportionalLevelValue(event.getPlayer().getStatistic(Statistic.JUMP),
-                    0, 100000, 0, 0.25);
+                    0, 100000, 0, 0.125);
             Vector target = event.getFrom().subtract(event.getTo()).toVector();
 
             Vector velocity = event.getPlayer().getVelocity();

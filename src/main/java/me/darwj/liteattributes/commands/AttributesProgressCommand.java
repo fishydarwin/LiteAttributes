@@ -32,9 +32,9 @@ public class AttributesProgressCommand implements CommandExecutor, TabCompleter 
 
         Player player = (Player) sender;
 
-        sender.sendMessage(ChatColor.GRAY + "- - - - -");
+        sender.sendMessage(ChatColor.GRAY + "- - - - - - - - - -");
         sender.sendMessage(ChatColor.GOLD + "Attribute Progress");
-        sender.sendMessage(ChatColor.GRAY + "- - - - -");
+        sender.sendMessage(ChatColor.GRAY + "- - - - - - - - - -");
         {
             double speed;
             if (player.getStatistic(Statistic.WALK_ONE_CM) > 10000000) {
@@ -43,7 +43,7 @@ public class AttributesProgressCommand implements CommandExecutor, TabCompleter 
                 speed = player.getStatistic(Statistic.WALK_ONE_CM) / 10000000d;
                 speed = Math.floor(speed * 1000) / 10;
             }
-            sender.sendMessage(ChatColor.YELLOW + "Speed " + speed + "%");
+            sender.sendMessage(ChatColor.YELLOW + "Speed        " + speed + "%");
         }
         {
             double jump;
@@ -53,7 +53,7 @@ public class AttributesProgressCommand implements CommandExecutor, TabCompleter 
                 jump = player.getStatistic(Statistic.JUMP) / 100000d;
                 jump = Math.floor(jump * 1000) / 10;
             }
-            sender.sendMessage(ChatColor.YELLOW + "Jump " + jump + "%");
+            sender.sendMessage(ChatColor.YELLOW + "Jump         " + jump + "%");
         }
         {
             double endurance;
@@ -63,9 +63,9 @@ public class AttributesProgressCommand implements CommandExecutor, TabCompleter 
                 endurance = player.getStatistic(Statistic.DAMAGE_TAKEN) / 500000d;
                 endurance = Math.floor(endurance * 1000) / 10;
             }
-            sender.sendMessage(ChatColor.YELLOW + "Endurance " + endurance + "%");
+            sender.sendMessage(ChatColor.YELLOW + "Endurance   " + endurance + "%");
         }
-        sender.sendMessage(ChatColor.GRAY + "- - - - -");
+        sender.sendMessage(ChatColor.GRAY + "- - - - - - - - - -");
 
         return true;
     }
