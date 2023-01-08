@@ -1,14 +1,9 @@
 package me.darwj.liteattributes.events;
 
-import com.destroystokyo.paper.event.player.PlayerJumpEvent;
 import me.darwj.liteattributes.LiteAttributes;
-import org.bukkit.Bukkit;
-import org.bukkit.Statistic;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.util.Vector;
 
+@Deprecated
 public class EventAttributes implements Listener {
 
     LiteAttributes plugin;
@@ -24,24 +19,30 @@ public class EventAttributes implements Listener {
      * The prime example of this is -jumping-
      */
 
-    private final double JumpOffset2Ticks = 0.33319999363422365;
-    @EventHandler(priority = EventPriority.MONITOR)
-    public void onPlayerJumps(PlayerJumpEvent event) {
-        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
-            double jumpHeightBonus =
-                    LiteAttributes.proportionalLevelValue(event.getPlayer().getStatistic(Statistic.JUMP),
-                    0, 100000, 0, 0.125);
-            Vector target = event.getFrom().subtract(event.getTo()).toVector();
-
-            Vector velocity = event.getPlayer().getVelocity();
-            velocity.setY(JumpOffset2Ticks + jumpHeightBonus);
-
-            velocity.setX(-target.getX() / 2);
-            velocity.setZ(-target.getZ() / 2);
-
-            event.getPlayer().setVelocity(velocity);
-        });
-    }
-
+//
+//    DEPRECATED IN FAVOR OF JUMP BOOST FOR CLIENT SIDE REASONS
+//
+//    private final double JumpOffset2Ticks = 0.33319999363422365;
+//    private final double DefaultJumpTimeSeconds = 19d / 30d;
+//    @EventHandler(priority = EventPriority.MONITOR)
+//    public void onPlayerJumps(PlayerJumpEvent event) {
+//        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+//            double jumpHeightBonus =
+//                    LiteAttributes.proportionalLevelValue(event.getPlayer().getStatistic(Statistic.JUMP),
+//                            0, 100000, 0, 0.125);
+//            Vector target = event.getFrom().subtract(event.getTo()).toVector();
+//
+//            Vector velocity = event.getPlayer().getVelocity();
+//            double predictedPing = event.getPlayer().getPing() / 1000d;
+//            double pingPredictedJump = jumpHeightBonus;
+//            pingPredictedJump = (DefaultJumpTimeSeconds - predictedPing) / DefaultJumpTimeSeconds * pingPredictedJump;
+//            velocity.setY(JumpOffset2Ticks + pingPredictedJump);
+//
+//            velocity.setX(-target.getX() / 2);
+//            velocity.setZ(-target.getZ() / 2);
+//
+//            event.getPlayer().setVelocity(velocity);
+//        });
+//    }
 
 }

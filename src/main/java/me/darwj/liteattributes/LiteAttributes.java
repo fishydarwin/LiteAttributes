@@ -1,7 +1,6 @@
 package me.darwj.liteattributes;
 
 import me.darwj.liteattributes.commands.AttributesProgressCommand;
-import me.darwj.liteattributes.events.EventAttributes;
 import me.darwj.liteattributes.events.StaticAttributes;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,8 +10,8 @@ public final class LiteAttributes extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        this.getServer().getPluginManager().registerEvents(new StaticAttributes(), this);
-        this.getServer().getPluginManager().registerEvents(new EventAttributes(this), this);
+        this.getServer().getPluginManager().registerEvents(new StaticAttributes(this), this);
+        //this.getServer().getPluginManager().registerEvents(new EventAttributes(this), this);
 
         {
             PluginCommand attributesProgressCommand = this.getCommand("attributes");

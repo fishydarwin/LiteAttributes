@@ -1,5 +1,6 @@
 package me.darwj.liteattributes.commands;
 
+import me.darwj.liteattributes.events.StaticAttributes;
 import org.bukkit.ChatColor;
 import org.bukkit.Statistic;
 import org.bukkit.command.Command;
@@ -40,27 +41,27 @@ public class AttributesProgressCommand implements CommandExecutor, TabCompleter 
             if (player.getStatistic(Statistic.WALK_ONE_CM) > 10000000) {
                 speed = 100;
             } else {
-                speed = player.getStatistic(Statistic.WALK_ONE_CM) / 10000000d;
+                speed = StaticAttributes.getPlayerWalkedDistance(player) / 10000000d;
                 speed = Math.floor(speed * 1000) / 10;
             }
             sender.sendMessage(ChatColor.YELLOW + "Speed        " + speed + "%");
         }
         {
             double jump;
-            if (player.getStatistic(Statistic.JUMP) > 100000) {
+            if (player.getStatistic(Statistic.JUMP) > 500000) {
                 jump = 100;
             } else {
-                jump = player.getStatistic(Statistic.JUMP) / 100000d;
+                jump = player.getStatistic(Statistic.JUMP) / 500000d;
                 jump = Math.floor(jump * 1000) / 10;
             }
             sender.sendMessage(ChatColor.YELLOW + "Jump         " + jump + "%");
         }
         {
             double endurance;
-            if (player.getStatistic(Statistic.DAMAGE_TAKEN) > 500000) {
+            if (player.getStatistic(Statistic.DAMAGE_TAKEN) > 100000) {
                 endurance = 100;
             } else {
-                endurance = player.getStatistic(Statistic.DAMAGE_TAKEN) / 500000d;
+                endurance = player.getStatistic(Statistic.DAMAGE_TAKEN) / 100000d;
                 endurance = Math.floor(endurance * 1000) / 10;
             }
             sender.sendMessage(ChatColor.YELLOW + "Endurance   " + endurance + "%");
