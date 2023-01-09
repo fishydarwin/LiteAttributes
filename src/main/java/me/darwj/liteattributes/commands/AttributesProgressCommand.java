@@ -38,7 +38,7 @@ public class AttributesProgressCommand implements CommandExecutor, TabCompleter 
         sender.sendMessage(ChatColor.GRAY + "- - - - - - - - - -");
         {
             double speed;
-            if (player.getStatistic(Statistic.WALK_ONE_CM) > 10000000) {
+            if (StaticAttributes.getPlayerWalkedDistance(player) > 10000000) {
                 speed = 100;
             } else {
                 speed = StaticAttributes.getPlayerWalkedDistance(player) / 10000000d;

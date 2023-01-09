@@ -47,9 +47,9 @@ public class StaticAttributes implements Listener {
             updateStatistic(event.getPlayer(), Statistic.DAMAGE_TAKEN,
                     event.getPlayer().getStatistic(Statistic.DAMAGE_TAKEN));
             updateStatistic(event.getPlayer(), Statistic.WALK_ONE_CM,
-                    event.getPlayer().getStatistic(Statistic.WALK_ONE_CM));
-            updateStatistic(event.getPlayer(), Statistic.JUMP,
                     getPlayerWalkedDistance(event.getPlayer()));
+            updateStatistic(event.getPlayer(), Statistic.JUMP,
+                    event.getPlayer().getStatistic(Statistic.JUMP));
         }
     }
 
@@ -59,9 +59,9 @@ public class StaticAttributes implements Listener {
         updateStatistic(event.getPlayer(), Statistic.DAMAGE_TAKEN,
                 event.getPlayer().getStatistic(Statistic.DAMAGE_TAKEN));
         updateStatistic(event.getPlayer(), Statistic.WALK_ONE_CM,
-                event.getPlayer().getStatistic(Statistic.WALK_ONE_CM));
-        updateStatistic(event.getPlayer(), Statistic.JUMP,
                 getPlayerWalkedDistance(event.getPlayer()));
+        updateStatistic(event.getPlayer(), Statistic.JUMP,
+                event.getPlayer().getStatistic(Statistic.JUMP));
     }
 
     private void updateStatistic(Player player, @NotNull Statistic statistic, int newValue) {
